@@ -7,7 +7,8 @@ function newConnection(socket: net.Socket): void {
 	})
 
 	socket.on('data', (data: Buffer) => {
-		console.log('data', data);
+		console.log('data', data.toString());
+		console.log('raw-data', data);
 		socket.write(data);
 
 		if (data.includes('q')) {
